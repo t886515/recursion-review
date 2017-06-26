@@ -11,7 +11,6 @@ var getElementsByClassName = function(className
   // while we are going through every element - we go through every node.childNodes
   var array = [];
   function recursion(node, className) {
-    console.log(node.nodeType);
     if (node.classList) {
       if (node.classList.contains(className)) {
         array.push(node);
@@ -19,11 +18,9 @@ var getElementsByClassName = function(className
       for (var i = 0; i < node.childNodes.length; i++) {
         recursion(node.childNodes[i], className);
       }
-    }
-    
+    }   
   }
   recursion(document.body, className);
-  console.log(array);
   return array; 
 };
 
