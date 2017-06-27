@@ -6,6 +6,7 @@ var parseJSON = function(json) {
   
   var index = 0;
   var element = json.charAt(index);
+  console.log('hi')
 
   function nextChar() {
     index += 1;
@@ -23,9 +24,10 @@ var parseJSON = function(json) {
     } else if (element === 't' || element === 'f') {
       return isBool();
     } else if (element === '[') {
-      return getArray();
-    } //else if (element === '{') {
-    // } else {
+      return 'arr';
+    } else if (element === '{') {
+      return 'obj';
+    } // else {
     // }
   }
 
@@ -70,27 +72,27 @@ var parseJSON = function(json) {
     }
   }
 
-  function getArray() {
-  var array = [];
+  // function getArray() {
+  //   var array = [];
 
-    function getEachEle() {
-      nextChar();
-      while (element && element !== ']') {
-        if (element === ',') {
-          nextChar();
-        } else {
-          array.push(recursive());
-        }
-      }
-    }
+  //   function getEachEle() {
+  //     nextChar();
+  //     while (element && element !== ']') {
+  //       if (element === ',') {
+  //         nextChar();
+  //       } else {
+  //         array.push(recursive());
+  //       }
+  //     }
+  //   }
     
-    getEachEle();
-    nextChar();
-    if (element === ']') {
-      getEachEle();
-    }
-    return array;
-  }
+  //   getEachEle();
+  //   nextChar();
+  //   if (element === ']') {
+  //     getEachEle();
+  //   }
+  //   return array;
+  // }
   
   // function getObj() {
   //   var obj = {};
